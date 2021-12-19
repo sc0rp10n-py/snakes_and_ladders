@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="778.0" prefWidth="1089.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="-2.0" layoutY="123.0" prefHeight="17.0" prefWidth="1089.0" text="Welcome" />
+      <Label layoutY="202.0" prefHeight="17.0" prefWidth="1089.0" text="To" />
+      <Label layoutY="269.0" prefHeight="17.0" prefWidth="1089.0" text="Snakes and Ladders" />
+   </children>
+</AnchorPane>
