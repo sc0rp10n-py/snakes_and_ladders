@@ -25,9 +25,11 @@ public class Main extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("welcome.fxml"));
             Group root = new Group((Node) fxmlLoader.load());
+            System.out.println("Starting Audio");
             Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
             MediaPlayer mediaPlayer = new MediaPlayer(music);
             mediaPlayer.setAutoPlay(true);
+            System.out.println("Audio Started");
 //            Image soundON = new Image(String.valueOf(Main.class.getResource("soundON.jpg")));
 //            Image soundOFF = new Image(String.valueOf(Main.class.getResource("soundOFF.png")));
 //            ImageView soundImage = new ImageView(soundON);

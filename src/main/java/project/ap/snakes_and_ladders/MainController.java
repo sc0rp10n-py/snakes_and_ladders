@@ -34,6 +34,9 @@ public class MainController {
     public void start(ActionEvent e) throws IOException {
         String p1 = player1.getText();
         String p2 = player2.getText();
+        System.out.println("Player 1: " + p1);
+        System.out.println("Player 2: " + p2);
+        System.out.println("Starting Game");
         FXMLLoader game = new FXMLLoader(Main.class.getResource("game.fxml"));
         root = game.load();
         GameController gameController = game.getController();
