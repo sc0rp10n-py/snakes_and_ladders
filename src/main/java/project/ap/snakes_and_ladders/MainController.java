@@ -11,8 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainController {
 
@@ -36,6 +40,8 @@ public class MainController {
         String p2 = player2.getText();
         System.out.println("Player 1: " + p1);
         System.out.println("Player 2: " + p2);
+//        GameController.coordinates.add(new Pair<>(10, 10));
+        initialiseCoords(GameController.coordinates);
         System.out.println("Starting Game");
         FXMLLoader game = new FXMLLoader(Main.class.getResource("game.fxml"));
         root = game.load();
@@ -67,6 +73,29 @@ public class MainController {
     public void exit(ActionEvent e) {
         System.out.println("Exiting");
         System.exit(0);
+    }
+
+    public void initialiseCoords(ArrayList<Pair<Integer, Integer>> list){
+//        list.add(new Pair<>(68, 510));
+        int x = 68, y = 510;
+        int ct = 1;
+        for (int j = 1; j <= 10; j++){
+            if (ct % 2 != 0){
+                x = 68;
+                for (int i = 0; i < 10; i++){
+                    list.add(new Pair<>(x + (41*i), y));
+                }
+            }
+            else{
+                x = 437;
+                for (int i = 0; i < 10; i++){
+                    list.add(new Pair<>(x - (41*i), y));
+                }
+                x = 68;
+            }
+            y = 510 - (41*j);
+            ct++;
+        }
     }
 
 //    public void sound(ActionEvent e) {

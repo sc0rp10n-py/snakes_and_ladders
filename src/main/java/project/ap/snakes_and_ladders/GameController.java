@@ -13,11 +13,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class GameController {
+//    public static HashMap<Integer, Integer> coordinates = new HashMap<>();
+    public static ArrayList<Pair<Integer, Integer>> coordinates = new ArrayList<>();
+    static HashMap<Integer, Integer> snakeCoords = new HashMap<>();
+    static HashMap<Integer, Integer> ladderCoords = new HashMap<>();
+    static int count = 1;
+    static int pos1 = 0, pos2 = 0;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -30,6 +40,10 @@ public class GameController {
     private ImageView dice;
     @FXML
     private ImageView sound;
+    @FXML
+    private Circle p1ball;
+    @FXML
+    private Circle p2ball;
 
     public void setPlayers(String p1, String p2) {
         System.out.println("Setting Player 1");
@@ -38,7 +52,7 @@ public class GameController {
         player2.setText("Player 2: " + p2);
     }
 
-    public void roll() throws IOException {
+    public int roll() throws IOException {
         System.out.println("Rolling");
         try {
             Image d1 = new Image(String.valueOf(Main.class.getResource("d1.png")));
@@ -51,22 +65,31 @@ public class GameController {
             System.out.println("Rolled: " + roll);
             if (roll == 1) {
                 dice.setImage(d1);
+                return 1;
             } else if (roll == 2) {
                 dice.setImage(d2);
+                return 2;
             } else if (roll == 3) {
                 dice.setImage(d3);
+                return 3;
             } else if (roll == 4) {
                 dice.setImage(d4);
+                return 4;
             } else if (roll == 5) {
                 dice.setImage(d5);
+                return 5;
             } else if (roll == 6) {
                 dice.setImage(d6);
+                return 6;
             } else {
                 System.out.println("Error");
+                return 0;
             }
+
         } catch (Exception e) {
             System.out.println(e);
         }
+        return 0;
     }
 
     public void back(ActionEvent e) throws IOException {
@@ -78,4 +101,34 @@ public class GameController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void play() throws IOException {
+        boolean flag1 = false, flag2 = false;
+        int x1 = (int)p1ball.getLayoutX();
+        int y1 = (int)p1ball.getLayoutY();
+        int x2 = (int)p2ball.getLayoutX();
+        int y2 = (int)p2ball.getLayoutY();
+        System.out.println(coordinates);
+
+        boolean a1 = ((int) p1ball.getLayoutX()  == 68) &&  ((int) p1ball.getLayoutY() == 141);
+        boolean a2 = ((int) p1ball.getLayoutX()  == 68) &&  ((int) p1ball.getLayoutY() == 141);
+
+        if (count % 2 != 0){
+            int roll = roll();
+            p1ball.setLayoutX(coordinates.get(pos1 + roll).getKey());
+            p1ball.setLayoutY(coordinates.get(pos1 + roll).getValue());
+            pos1 = pos1 + roll;
+            count++;
+        }
+        else{
+            int roll = roll();
+            p2ball.setLayoutX(coordinates.get(pos2 + roll).getKey());
+            p2ball.setLayoutY(coordinates.get(pos2 + roll).getValue());
+            pos2 = pos2 + roll;
+            count++;
+        }
+
+
+    }
+
 }

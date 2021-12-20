@@ -19,7 +19,7 @@
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#roll" text="ROLL">
+      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#play" text="ROLL">
          <font>
             <Font name="DejaVu Sans Bold" size="17.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font name="DejaVu Sans Bold" size="11.0" />
          </font>
       </Button>
-      <Circle fx:id="p1ball" fill="DODGERBLUE" layoutX="521.0" layoutY="111.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fx:id="p2ball" fill="#e4ff21" layoutX="521.0" layoutY="536.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="p1ball" fill="DODGERBLUE" layoutX="68.0" layoutY="510.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="p2ball" fill="#e4ff21" layoutX="68.0" layoutY="510.0" radius="12.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
