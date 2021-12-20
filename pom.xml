@@ -80,7 +80,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>project.ap.snakes_and_ladders/project.ap.snakes_and_ladders.HelloApplication
+                            <mainClass>project.ap.snakes_and_ladders/project.ap.snakes_and_ladders.Main
                             </mainClass>
                         </configuration>
                     </execution>
