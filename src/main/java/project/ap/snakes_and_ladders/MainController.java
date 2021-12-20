@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +20,7 @@ public class MainController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+//    private MediaPlayer mediaPlayer;
 
     @FXML
     private TextField player1;
@@ -62,4 +65,8 @@ public class MainController {
         System.out.println("Exiting");
         System.exit(0);
     }
+
+//    public void sound(ActionEvent e) {
+//        mediaPlayer.stop();
+//    }
 }

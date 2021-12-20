@@ -9,11 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.GameController">
    <children>
-      <Label fx:id="player1" layoutX="488.0" layoutY="41.0" prefHeight="17.0" prefWidth="108.0" text="Player 1">
+      <Label fx:id="player1" layoutX="416.0" layoutY="40.0" prefHeight="21.0" prefWidth="210.0" text="Player 1">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="player2" layoutX="43.0" layoutY="569.0" prefHeight="17.0" prefWidth="108.0" text="Player 2">
+      <Label fx:id="player2" layoutX="43.0" layoutY="569.0" prefHeight="21.0" prefWidth="259.0" text="Player 2">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font>
