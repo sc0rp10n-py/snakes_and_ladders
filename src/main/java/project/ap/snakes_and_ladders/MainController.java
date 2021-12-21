@@ -89,7 +89,7 @@ public class MainController {
         map.put(36,6);
         map.put(32,10);
         map.put(48,26);
-        map.put(63,18);
+        map.put(62,18);
         map.put(88,24);
         map.put(95,56);
         map.put(97,78);

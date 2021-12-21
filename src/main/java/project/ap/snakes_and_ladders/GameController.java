@@ -116,9 +116,12 @@ public class GameController {
         if (count % 2 != 0){
             if (flag1){
                 int roll = roll();
-                p1ball.setLayoutX(coordinates.get(pos1 + roll-1).getKey());
-                p1ball.setLayoutY(coordinates.get(pos1 + roll-1).getValue());
                 pos1 = pos1 + roll;
+                if (pos1 <= 100){
+                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
+                    p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
+                }
+
                 if (ladderCoords.containsKey(pos1)){
                     int pos = ladderCoords.get(pos1);
                     p1ball.setLayoutX(coordinates.get(pos-1).getKey());
@@ -145,9 +148,11 @@ public class GameController {
         else{
             if (flag2){
                 int roll = roll();
-                p2ball.setLayoutX(coordinates.get(pos2 + roll-1).getKey());
-                p2ball.setLayoutY(coordinates.get(pos2 + roll-1).getValue());
                 pos2 = pos2 + roll;
+                if (pos2 <= 100){
+                    p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey());
+                    p2ball.setLayoutY(coordinates.get(pos2 - 1).getValue());
+                }
                 if (ladderCoords.containsKey(pos2)){
                     int pos = ladderCoords.get(pos2);
                     p2ball.setLayoutX(coordinates.get(pos-1).getKey());
