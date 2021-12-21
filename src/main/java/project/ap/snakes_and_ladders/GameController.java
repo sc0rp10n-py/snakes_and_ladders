@@ -55,15 +55,20 @@ public class GameController {
     public int roll() throws IOException {
         System.out.println("Rolling");
         try {
-            Image rolling = new Image(String.valueOf(Main.class.getResource("rolling.gif")));
-            dice.setImage(rolling);
-//            Thread.sleep(3000);
             Image d1 = new Image(String.valueOf(Main.class.getResource("d1.png")));
             Image d2 = new Image(String.valueOf(Main.class.getResource("d2.png")));
             Image d3 = new Image(String.valueOf(Main.class.getResource("d3.png")));
             Image d4 = new Image(String.valueOf(Main.class.getResource("d4.png")));
             Image d5 = new Image(String.valueOf(Main.class.getResource("d5.png")));
             Image d6 = new Image(String.valueOf(Main.class.getResource("d6.png")));
+            for (int i = 0; i < 1000000000; i++) {
+                dice.setImage(d1);
+                dice.setImage(d2);
+                dice.setImage(d3);
+                dice.setImage(d4);
+                dice.setImage(d5);
+                dice.setImage(d6);
+            }
             int roll = (int) (Math.random() * 6) + 1;
             System.out.println("Rolled: " + roll);
             if (roll == 1) {
