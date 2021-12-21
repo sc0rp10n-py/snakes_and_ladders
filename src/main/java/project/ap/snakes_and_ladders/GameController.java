@@ -23,6 +23,8 @@ public class GameController {
     static HashMap<Pair<Integer, Integer>, Integer> posMap = new HashMap<Pair<Integer, Integer>, Integer>();
     static HashMap<Integer, Integer> snakeCoords = new HashMap<>();
     static HashMap<Integer, Integer> ladderCoords = new HashMap<>();
+    static boolean flag1 = false, flag2 = false;
+
     static int count = 1;
     static int pos1 = 1, pos2 = 1;
     private Stage stage;
@@ -100,7 +102,6 @@ public class GameController {
     }
 
     public void play() throws IOException {
-        boolean flag1 = false, flag2 = false;
         System.out.println(posMap);
         System.out.println(posMap.values());
         int x1 = (int)p1ball.getLayoutX();
@@ -113,46 +114,63 @@ public class GameController {
         boolean a2 = ((int) p1ball.getLayoutX()  == 68) &&  ((int) p1ball.getLayoutY() == 141);
 
         if (count % 2 != 0){
-            int roll = roll();
-            p1ball.setLayoutX(coordinates.get(pos1 + roll-1).getKey());
-            p1ball.setLayoutY(coordinates.get(pos1 + roll-1).getValue());
-            pos1 = pos1 + roll;
-            if (ladderCoords.containsKey(pos1)){
-                int pos = ladderCoords.get(pos1);
-                p1ball.setLayoutX(coordinates.get(pos-1).getKey());
-                p1ball.setLayoutY(coordinates.get(pos-1).getValue());
-                pos1 = pos;
+            if (flag1){
+                int roll = roll();
+                p1ball.setLayoutX(coordinates.get(pos1 + roll-1).getKey());
+                p1ball.setLayoutY(coordinates.get(pos1 + roll-1).getValue());
+                pos1 = pos1 + roll;
+                if (ladderCoords.containsKey(pos1)){
+                    int pos = ladderCoords.get(pos1);
+                    p1ball.setLayoutX(coordinates.get(pos-1).getKey());
+                    p1ball.setLayoutY(coordinates.get(pos-1).getValue());
+                    pos1 = pos;
 
+                }
+                if (snakeCoords.containsKey(pos1)){
+                    int pos = snakeCoords.get(pos1);
+                    p1ball.setLayoutX(coordinates.get(pos-1).getKey());
+                    p1ball.setLayoutY(coordinates.get(pos-1).getValue());
+                    pos1 = pos;
+                }
             }
-            if (snakeCoords.containsKey(pos1)){
-                int pos = snakeCoords.get(pos1);
-                p1ball.setLayoutX(coordinates.get(pos-1).getKey());
-                p1ball.setLayoutY(coordinates.get(pos-1).getValue());
-                pos1 = pos;
+            else{
+                int roll = roll();
+                if (roll == 1){
+                    flag1 = true;
+                    p1ball.setLayoutX(coordinates.get(pos1-1).getKey());
+                    p1ball.setLayoutY(coordinates.get(pos1-1).getValue());
+                }
             }
-            count++;
         }
         else{
-            int roll = roll();
-            p2ball.setLayoutX(coordinates.get(pos2 + roll-1).getKey());
-            p2ball.setLayoutY(coordinates.get(pos2 + roll-1).getValue());
-            pos2 = pos2 + roll;
-            if (ladderCoords.containsKey(pos2)){
-                int pos = ladderCoords.get(pos2);
-                p2ball.setLayoutX(coordinates.get(pos-1).getKey());
-                p2ball.setLayoutY(coordinates.get(pos-1).getValue());
-                pos2 = pos;
+            if (flag2){
+                int roll = roll();
+                p2ball.setLayoutX(coordinates.get(pos2 + roll-1).getKey());
+                p2ball.setLayoutY(coordinates.get(pos2 + roll-1).getValue());
+                pos2 = pos2 + roll;
+                if (ladderCoords.containsKey(pos2)){
+                    int pos = ladderCoords.get(pos2);
+                    p2ball.setLayoutX(coordinates.get(pos-1).getKey());
+                    p2ball.setLayoutY(coordinates.get(pos-1).getValue());
+                    pos2 = pos;
+                }
+                if (snakeCoords.containsKey(pos2)){
+                    int pos = snakeCoords.get(pos2);
+                    p2ball.setLayoutX(coordinates.get(pos-1).getKey());
+                    p2ball.setLayoutY(coordinates.get(pos-1).getValue());
+                    pos2 = pos;
+                }
             }
-            if (snakeCoords.containsKey(pos2)){
-                int pos = snakeCoords.get(pos2);
-                p2ball.setLayoutX(coordinates.get(pos-1).getKey());
-                p2ball.setLayoutY(coordinates.get(pos-1).getValue());
-                pos2 = pos;
+            else {
+                int roll = roll();
+                if (roll == 1) {
+                    flag2 = true;
+                    p2ball.setLayoutX(coordinates.get(pos2-1).getKey());
+                    p2ball.setLayoutY(coordinates.get(pos2-1).getValue());
+                }
             }
-            count++;
         }
-
-
+        count++;
     }
 
 }
