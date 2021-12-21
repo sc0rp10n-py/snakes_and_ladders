@@ -8,13 +8,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -42,6 +39,8 @@ public class MainController {
         System.out.println("Player 2: " + p2);
 //        GameController.coordinates.add(new Pair<>(10, 10));
         initialiseCoords(GameController.coordinates);
+        SnakeMaps(GameController.snakeCoords);
+        LadderMaps(GameController.ladderCoords);
         System.out.println("Starting Game");
         FXMLLoader game = new FXMLLoader(Main.class.getResource("game.fxml"));
         root = game.load();
@@ -75,21 +74,46 @@ public class MainController {
         System.exit(0);
     }
 
+    public void LadderMaps(HashMap<Integer, Integer> map){
+        map.put(1, 38);
+        map.put(4, 14);
+        map.put(8, 30);
+        map.put(21, 42);
+        map.put(28,76);
+        map.put(50, 67);
+        map.put(80,99);
+        map.put(71,92);
+    }
+
+    public void SnakeMaps(HashMap<Integer, Integer> map){
+        map.put(36,6);
+        map.put(32,10);
+        map.put(48,26);
+        map.put(63,18);
+        map.put(88,24);
+        map.put(95,56);
+        map.put(97,78);
+    }
+
     public void initialiseCoords(ArrayList<Pair<Integer, Integer>> list){
 //        list.add(new Pair<>(68, 510));
         int x = 68, y = 510;
         int ct = 1;
+        int ps = 1;
         for (int j = 1; j <= 10; j++){
             if (ct % 2 != 0){
                 x = 68;
                 for (int i = 0; i < 10; i++){
                     list.add(new Pair<>(x + (41*i), y));
+                    GameController.posMap.put(new Pair<>(x + (41*i), y), ps++);
                 }
             }
             else{
                 x = 437;
                 for (int i = 0; i < 10; i++){
                     list.add(new Pair<>(x - (41*i), y));
+                    GameController.posMap.put(new Pair<>(x - (41*i), y), ps++);
+
                 }
                 x = 68;
             }
