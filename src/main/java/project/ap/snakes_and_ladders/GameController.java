@@ -1,5 +1,6 @@
 package project.ap.snakes_and_ladders;
 
+import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -61,14 +62,6 @@ public class GameController {
             Image d4 = new Image(String.valueOf(Main.class.getResource("d4.png")));
             Image d5 = new Image(String.valueOf(Main.class.getResource("d5.png")));
             Image d6 = new Image(String.valueOf(Main.class.getResource("d6.png")));
-            for (int i = 0; i < 1000000000; i++) {
-                dice.setImage(d1);
-                dice.setImage(d2);
-                dice.setImage(d3);
-                dice.setImage(d4);
-                dice.setImage(d5);
-                dice.setImage(d6);
-            }
             int roll = (int) (Math.random() * 6) + 1;
             System.out.println("Rolled: " + roll);
             if (roll == 1) {
@@ -187,4 +180,17 @@ public class GameController {
         count++;
     }
 
+//    private class Roller extends AnimationTimer {
+//        private long FPS = 50L;
+//        private long INTERVAL = 1000000000L / FPS;
+//        private long lastTime = 0L;
+//
+//        @Override
+//        public void handle(long now) {
+//            if (now - lastTime > INTERVAL) {
+//                int r = 2 + (int) (Math.random() * 5);
+//                dice.setImage(new Image("dice" + r + ".png"));
+//            }
+//        }
+//    }
 }
