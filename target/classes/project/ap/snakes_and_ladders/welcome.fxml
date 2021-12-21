@@ -3,8 +3,9 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.MainController">
@@ -45,7 +46,15 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Circle fill="DODGERBLUE" layoutX="91.0" layoutY="374.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle fill="#e4ff21" layoutX="427.0" layoutY="374.0" radius="13.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="45.0" fitWidth="42.0" layoutX="78.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@red.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="414.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@yellow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

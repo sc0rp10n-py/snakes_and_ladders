@@ -25,7 +25,7 @@ public class Main extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("welcome.fxml"));
             Group root = new Group((Node) fxmlLoader.load());
-            System.out.println("Starting Audio");
+//            System.out.println("Starting Audio");
 //            Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
 //            MediaPlayer mediaPlayer = new MediaPlayer(music);
 //            mediaPlayer.setAutoPlay(true);

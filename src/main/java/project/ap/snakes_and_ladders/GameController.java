@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Pair;
@@ -40,9 +41,9 @@ public class GameController {
     @FXML
     private ImageView sound;
     @FXML
-    private Circle p1ball;
+    private ImageView p1ball;
     @FXML
-    private Circle p2ball;
+    private ImageView p2ball;
 
     public void setPlayers(String p1, String p2) {
         System.out.println("Setting Player 1");
@@ -54,6 +55,9 @@ public class GameController {
     public int roll() throws IOException {
         System.out.println("Rolling");
         try {
+            Image rolling = new Image(String.valueOf(Main.class.getResource("rolling.gif")));
+            dice.setImage(rolling);
+//            Thread.sleep(3000);
             Image d1 = new Image(String.valueOf(Main.class.getResource("d1.png")));
             Image d2 = new Image(String.valueOf(Main.class.getResource("d2.png")));
             Image d3 = new Image(String.valueOf(Main.class.getResource("d3.png")));
