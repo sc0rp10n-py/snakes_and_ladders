@@ -18,7 +18,7 @@
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#play" text="ROLL">
+      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#rollAnimation" text="ROLL">
          <font>
             <Font name="DejaVu Sans Bold" size="17.0" />
          </font>

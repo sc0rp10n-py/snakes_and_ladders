@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -45,6 +46,8 @@ public class GameController {
     private ImageView p1ball;
     @FXML
     private ImageView p2ball;
+    @FXML
+    private Button roll;
 
     public void setPlayers(String p1, String p2) {
         System.out.println("Setting Player 1");
@@ -180,17 +183,45 @@ public class GameController {
         count++;
     }
 
-//    private class Roller extends AnimationTimer {
-//        private long FPS = 50L;
-//        private long INTERVAL = 1000000000L / FPS;
-//        private long lastTime = 0L;
-//
-//        @Override
-//        public void handle(long now) {
-//            if (now - lastTime > INTERVAL) {
-//                int r = 2 + (int) (Math.random() * 5);
-//                dice.setImage(new Image("dice" + r + ".png"));
-//            }
-//        }
-//    }
+    private Roller clock;
+
+    private class Roller extends AnimationTimer {
+        private long FPS = 50L;
+        private long INTERVAL = 1000000000L / FPS;
+        private int MAX_FRAMES = 20;
+
+        private long lastTime = 0L;
+        private int count = 0;
+
+        @Override
+        public void handle(long now) {
+            if (now - lastTime > INTERVAL) {
+                int r = 2 + (int) (Math.random() * 5);
+                Image tp = new Image(String.valueOf(Main.class.getResource("d" + r + ".png")));
+                dice.setImage(tp);
+                lastTime = now;
+                count++;
+                if (count > MAX_FRAMES) {
+                    clock.stop();
+                    disableButtons(false);
+                    try {
+                        play();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    count = 0;
+                }
+            }
+        }
+    }
+
+    public void rollAnimation() {
+        clock = new Roller();
+        clock.start();
+        disableButtons(true);
+    }
+
+    public void disableButtons(Boolean b){
+        roll.setDisable(b);
+    }
 }
