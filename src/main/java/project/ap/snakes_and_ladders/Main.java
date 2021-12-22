@@ -27,8 +27,8 @@ public class Main extends Application {
             Group root = new Group((Node) fxmlLoader.load());
             System.out.println("Starting Audio");
             Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
-            MediaPlayer mediaPlayer = new MediaPlayer(music);
-            mediaPlayer.setAutoPlay(true);
+//            MediaPlayer mediaPlayer = new MediaPlayer(music);
+//            mediaPlayer.setAutoPlay(true);
             System.out.println("Audio Started");
 //            Image soundON = new Image(String.valueOf(Main.class.getResource("soundON.jpg")));
 //            Image soundOFF = new Image(String.valueOf(Main.class.getResource("soundOFF.png")));

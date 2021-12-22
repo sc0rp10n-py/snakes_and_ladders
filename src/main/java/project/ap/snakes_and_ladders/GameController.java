@@ -1,24 +1,33 @@
 package project.ap.snakes_and_ladders;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class GameController {
 //    public static HashMap<Integer, Integer> coordinates = new HashMap<>();
@@ -97,16 +106,29 @@ public class GameController {
     }
 
     public void back(ActionEvent e) throws IOException {
-        System.out.println("Going Back");
-        FXMLLoader game = new FXMLLoader(Main.class.getResource("welcome.fxml"));
-        root = game.load();
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("EXIT");
+        alert.setHeaderText("END CURRENT GAME?  ");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            p1ball.setLayoutX(47);
+            p1ball.setLayoutY(569);
+            p2ball.setLayoutX(264);
+            p2ball.setLayoutY(569);
+            pos1 = 1;
+            pos2 = 1;
+            flag1 = false;
+            flag2 = false;
+            FXMLLoader game = new FXMLLoader(Main.class.getResource("welcome.fxml"));
+            root = game.load();
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
 
-    public void play() throws IOException {
+    public void play() throws IOException, InterruptedException {
         int x1 = (int)p1ball.getLayoutX();
         int y1 = (int)p1ball.getLayoutY();
         int x2 = (int)p2ball.getLayoutX();
@@ -121,8 +143,13 @@ public class GameController {
                     pos1 -= roll;
                 }
                 if (pos1 <= 100){
-                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
-                    p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
+                    for (int i = pos1-roll; i <= pos1; i++){
+                        p1ball.setLayoutX(coordinates.get(i).getKey());
+                        p1ball.setLayoutY(coordinates.get(i).getValue());
+
+                    }
+//                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
+//                    p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
                 }
 
                 if (ladderCoords.containsKey(pos1)){
@@ -238,7 +265,7 @@ public class GameController {
                     disableButtons(false);
                     try {
                         play();
-                    } catch (IOException e) {
+                    } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
                     count = 0;
