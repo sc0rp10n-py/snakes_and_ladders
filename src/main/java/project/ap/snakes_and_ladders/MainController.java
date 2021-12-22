@@ -3,7 +3,6 @@ package project.ap.snakes_and_ladders;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,8 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -21,12 +18,10 @@ import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.ResourceBundle;
 
-public class MainController implements Initializable {
+public class MainController {
 
 
     private Stage stage;
@@ -45,31 +40,6 @@ public class MainController implements Initializable {
     private Button roll;
     @FXML
     private Button back;
-    @FXML
-    private Button sound;
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-//        try {
-//            Image soundON = new Image(String.valueOf(Main.class.getResource("soundON.jpg")));
-//            Image soundOFF = new Image(String.valueOf(Main.class.getResource("soundOFF.png")));
-//            ImageView soundImage = new ImageView(soundON);
-//            soundImage.setFitHeight(38);
-//            soundImage.setFitWidth(38);
-//            sound.setGraphic(soundImage);
-//            sound.setOnAction(event -> {
-//                if (mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
-//                    mediaPlayer.stop();
-//                    soundImage.setImage(soundOFF);
-//                } else {
-//                    mediaPlayer.play();
-//                    soundImage.setImage(soundON);
-//                }
-//            });
-//        } catch (Exception ex) {
-//            System.out.println(ex);
-//        }
-    }
 
     public void start(ActionEvent e) throws IOException {
         try {
@@ -115,7 +85,7 @@ public class MainController implements Initializable {
 
     public void exit(ActionEvent e) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("EXIT");
+        alert.setTitle("EXIT GAME");
         alert.setHeaderText("Are you sure you want to exit the game? ");
         if (alert.showAndWait().get() == ButtonType.OK){
             System.exit(0);

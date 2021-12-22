@@ -61,6 +61,5 @@
             <Image url="@logo.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="sound" layoutX="550.0" layoutY="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" />
    </children>
 </AnchorPane>

@@ -1,9 +1,6 @@
 package project.ap.snakes_and_ladders;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
-import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,9 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -30,9 +25,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
 //    public static HashMap<Integer, Integer> coordinates = new HashMap<>();
@@ -43,6 +35,8 @@ public class GameController implements Initializable {
     static boolean flag1 = false, flag2 = false;
     static String winner ;
     static int count = 1;
+//    static int pos1 = 1, pos2 = 1;
+
     static int pos1 = 90, pos2 = 90;
     private Stage stage;
     private Scene scene;
@@ -248,22 +242,23 @@ public class GameController implements Initializable {
         if (pos1 == 100){
             if (player1.getText().isEmpty()){
                 winner = "Player 1";
-                setWinScene(winner);
+//                setWinScene();
             }
             else{
                 winner = player1.getText();
-                setWinScene(winner);
+//                setWinScene();
             }
             disableButtons(true);
         }
         else if (pos2 == 100){
             if (player2.getText().isEmpty()){
                 winner = "Player 2";
-                setWinScene(winner);
+//                setWinScene();
             }
             else{
                 winner = player2.getText();
-                setWinScene(winner);
+//                setWinScene();
+                
             }
             disableButtons(true);
 
@@ -275,6 +270,7 @@ public class GameController implements Initializable {
         Parent root = win.load();
         WinController winController = win.getController();
         winController.setWinner(winner);
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
