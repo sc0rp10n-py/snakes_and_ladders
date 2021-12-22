@@ -253,33 +253,32 @@ public class GameController implements Initializable {
         if (pos1 == 100){
             if (player1.getText().isEmpty()){
                 winner = "Player 1";
-//                setWinScene();
+                setWinScene(winner);
             }
             else{
                 winner = player1.getText();
-//                setWinScene();
+                setWinScene(winner);
             }
             disableButtons(true);
         }
         else if (pos2 == 100){
             if (player2.getText().isEmpty()){
                 winner = "Player 2";
-//                setWinScene();
+                setWinScene(winner);
             }
             else{
                 winner = player2.getText();
-//                setWinScene();
+                setWinScene(winner);
             }
             disableButtons(true);
         }
     }
 
-    public void setWinScene(ActionEvent e) throws IOException {
-        FXMLLoader win = new FXMLLoader(Main.class.getResource("winner.fxml"));
-        root = win.load();
+    public void setWinScene(String winner) throws IOException {
+        FXMLLoader win = FXMLLoader.load(getClass().getResource("winner.fxml"));
+        Parent root = win.load();
         WinController winController = win.getController();
         winController.setWinner(winner);
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
