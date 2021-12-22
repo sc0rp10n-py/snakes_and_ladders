@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.WinController">
    <children>
       <Label alignment="CENTER" layoutY="123.0" prefHeight="45.0" prefWidth="642.0" text="!!! WINNER !!!">
          <font>
@@ -16,7 +16,7 @@
             <Font name="DejaVu Sans Bold" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="home" layoutX="78.0" layoutY="423.0" mnemonicParsing="false" onAction="#home" prefHeight="45.0" prefWidth="85.0" text="HOME">
+      <Button fx:id="home" layoutX="78.0" layoutY="423.0" mnemonicParsing="false" onAction="#home" prefHeight="45.0" prefWidth="95.0" text="HOME">
          <font>
             <Font size="20.0" />
          </font>

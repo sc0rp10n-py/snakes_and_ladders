@@ -4,6 +4,7 @@ import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,15 +13,19 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ResourceBundle;
 
-public class GameController {
+public class GameController implements Initializable {
 //    public static HashMap<Integer, Integer> coordinates = new HashMap<>();
     static ArrayList<Pair<Integer, Integer>> coordinates = new ArrayList<>();
     static HashMap<Pair<Integer, Integer>, Integer> posMap = new HashMap<Pair<Integer, Integer>, Integer>();
@@ -33,6 +38,7 @@ public class GameController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private Roller clock;
 
     @FXML
     private Label player1;
@@ -48,6 +54,28 @@ public class GameController {
     private ImageView p2ball;
     @FXML
     private Button roll;
+
+    @FXML
+    private MediaView mediaView;
+    @FXML
+    private MediaPlayer mediaPlayer;
+//    @FXML
+//    private Media media;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Media arrow = new Media(String.valueOf(Main.class.getResource("arrow.mp4")));
+        mediaPlayer = new MediaPlayer(arrow);
+        mediaView.setMediaPlayer(mediaPlayer);
+        mediaView.setFitHeight(100);
+        mediaView.setFitWidth(100);
+        mediaView.setX(500);
+        mediaView.setY(420);
+        mediaView.setRotate(180);
+        mediaPlayer.play();
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
 
     public void setPlayers(String p1, String p2) {
         System.out.println("Setting Player 1");
@@ -98,6 +126,7 @@ public class GameController {
 
     public void back(ActionEvent e) throws IOException {
         System.out.println("Going Back");
+
         FXMLLoader game = new FXMLLoader(Main.class.getResource("welcome.fxml"));
         root = game.load();
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -198,24 +227,37 @@ public class GameController {
         if (pos1 == 100){
             if (player1.getText().isEmpty()){
                 winner = "Player 1";
+//                setWinScene();
             }
             else{
                 winner = player1.getText();
+//                setWinScene();
             }
             disableButtons(true);
         }
         else if (pos2 == 100){
             if (player2.getText().isEmpty()){
                 winner = "Player 2";
+//                setWinScene();
             }
             else{
                 winner = player2.getText();
+//                setWinScene();
             }
             disableButtons(true);
         }
     }
 
-    private Roller clock;
+    public void setWinScene(ActionEvent e) throws IOException {
+        FXMLLoader win = new FXMLLoader(Main.class.getResource("winner.fxml"));
+        root = win.load();
+        WinController winController = win.getController();
+        winController.setWinner(winner);
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     private class Roller extends AnimationTimer {
         private long FPS = 50L;
@@ -234,9 +276,10 @@ public class GameController {
                 lastTime = now;
                 count++;
                 if (count > MAX_FRAMES) {
-                    clock.stop();
-                    disableButtons(false);
                     try {
+                        clock.stop();
+                        disableButtons(false);
+                        mediaPlayer.play();
                         play();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -248,9 +291,15 @@ public class GameController {
     }
 
     public void rollAnimation() {
-        clock = new Roller();
-        clock.start();
-        disableButtons(true);
+        try {
+            clock = new Roller();
+            clock.start();
+            disableButtons(true);
+            mediaPlayer.stop();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
     }
 
     public void disableButtons(Boolean b){

@@ -3,11 +3,15 @@ package project.ap.snakes_and_ladders;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
@@ -20,10 +24,12 @@ public class MainController {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
+    private Group root;
 //    static String p1, p2;
-//    private MediaPlayer mediaPlayer;
-
+    @FXML
+    private MediaPlayer mediaPlayer;
+    @FXML
+    private MediaView mediaView;
     @FXML
     private TextField player1;
     @FXML
@@ -34,18 +40,20 @@ public class MainController {
     private Button back;
 
     public void start(ActionEvent e) throws IOException {
-        String p1 = player1.getText();
-        String p2 = player2.getText();
-        System.out.println("Player 1: " + p1);
-        System.out.println("Player 2: " + p2);
-        initialiseCoords(GameController.coordinates);
-        SnakeMaps(GameController.snakeCoords);
-        LadderMaps(GameController.ladderCoords);
-        System.out.println("Starting Game");
-        FXMLLoader game = new FXMLLoader(Main.class.getResource("game.fxml"));
-        root = game.load();
-        GameController gameController = game.getController();
-//        game.setController(gameController);
+        try {
+            String p1 = player1.getText();
+            String p2 = player2.getText();
+            System.out.println("Player 1: " + p1);
+            System.out.println("Player 2: " + p2);
+            initialiseCoords(GameController.coordinates);
+            SnakeMaps(GameController.snakeCoords);
+            LadderMaps(GameController.ladderCoords);
+            System.out.println("Starting Game");
+            FXMLLoader game = new FXMLLoader(Main.class.getResource("game.fxml"));
+            root = new Group((Node) game.load());
+            GameController gameController = game.getController();
+            System.out.println("Game Started");
+//            game.setController(gameController);
 //        roll.setOnAction(event -> {
 //                    try {
 //                        gameController.roll();
@@ -62,11 +70,15 @@ public class MainController {
 //                    }
 //                }
 //        );
-        gameController.setPlayers(p1, p2);
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+            gameController.setPlayers(p1, p2);
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
     }
 
     public void exit(ActionEvent e) {
