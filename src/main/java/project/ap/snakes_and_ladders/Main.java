@@ -19,21 +19,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    public void soundDisplay() {
-
-    }
+    static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage stage) throws IOException {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("welcome.fxml"));
             Group root = new Group((Node) fxmlLoader.load());
-//            System.out.println("Starting Audio");
-//            Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
-//            MediaPlayer mediaPlayer = new MediaPlayer(music);
-//            mediaPlayer.setAutoPlay(true);
-//            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-//            System.out.println("Audio Started");
+            System.out.println("Starting Audio");
+            Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
+            mediaPlayer = new MediaPlayer(music);
+            mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            System.out.println("Audio Started");
             Scene scene = new Scene(root);
 //            scene.setFill(Color.PALEVIOLETRED);
             scene.setFill(Color.DARKOLIVEGREEN);
