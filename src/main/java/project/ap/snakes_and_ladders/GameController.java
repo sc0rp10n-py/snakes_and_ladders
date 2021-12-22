@@ -51,7 +51,7 @@ public class GameController implements Initializable {
     @FXML
     private ImageView dice;
     @FXML
-    private ImageView sound;
+    private Button sound;
     @FXML
     private ImageView p1ball;
     @FXML
@@ -80,6 +80,21 @@ public class GameController implements Initializable {
         mediaPlayer.play();
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        Image soundON = new Image(String.valueOf(Main.class.getResource("soundON.jpg")));
+        Image soundOFF = new Image(String.valueOf(Main.class.getResource("soundOFF.png")));
+        ImageView soundImage = new ImageView(soundON);
+        soundImage.setFitHeight(38);
+        soundImage.setFitWidth(38);
+        sound.setGraphic(soundImage);
+        sound.setOnAction(event -> {
+            if (Main.mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
+                Main.mediaPlayer.stop();
+                soundImage.setImage(soundOFF);
+            } else {
+                Main.mediaPlayer.play();
+                soundImage.setImage(soundON);
+            }
+        });
     }
 
     public void setPlayers(String p1, String p2) {

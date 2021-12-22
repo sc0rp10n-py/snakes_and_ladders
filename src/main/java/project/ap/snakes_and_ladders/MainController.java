@@ -31,7 +31,7 @@ public class MainController implements Initializable {
     private Scene scene;
     private Group root;
 //    static String p1, p2;
-    private Boolean soundStat = true;
+    private boolean soundStat = true;
 
     @FXML
     private MediaView mediaView;
@@ -65,13 +65,13 @@ public class MainController implements Initializable {
                     soundImage.setImage(soundON);
                 }
             });
-            if (soundStat) {
-                Main.mediaPlayer.play();
-                soundImage.setImage(soundON);
-            } else {
-                Main.mediaPlayer.stop();
-                soundImage.setImage(soundOFF);
-            }
+//            if (soundStat) {
+//                Main.mediaPlayer.play();
+//                soundImage.setImage(soundON);
+//            } else {
+//                Main.mediaPlayer.stop();
+//                soundImage.setImage(soundOFF);
+//            }
         } catch (Exception ex) {
             System.out.println(ex);
         }

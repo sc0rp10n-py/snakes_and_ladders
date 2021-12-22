@@ -32,6 +32,7 @@ public class Main extends Application {
             mediaPlayer = new MediaPlayer(music);
             mediaPlayer.setAutoPlay(true);
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+            mediaPlayer.setVolume(0.3);
             System.out.println("Audio Started");
             Scene scene = new Scene(root);
             Image icon = new Image(String.valueOf(Main.class.getResource("icon.png")));
