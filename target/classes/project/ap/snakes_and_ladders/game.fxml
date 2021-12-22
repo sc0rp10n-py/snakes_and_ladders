@@ -9,11 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.GameController">
    <children>
-      <Label fx:id="player1" layoutX="416.0" layoutY="40.0" prefHeight="21.0" prefWidth="210.0" text="Player 1">
+      <Label fx:id="player1" layoutX="75.0" layoutY="575.0" prefHeight="22.0" prefWidth="179.0" text="Player 1">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font></Label>
-      <Label fx:id="player2" layoutX="99.0" layoutY="569.0" prefHeight="21.0" prefWidth="259.0" text="Player 2">
+      <Label fx:id="player2" layoutX="291.0" layoutY="575.0" prefHeight="22.0" prefWidth="156.0" text="Player 2">
          <font>
             <Font name="DejaVu Sans Bold" size="15.0" />
          </font>
@@ -38,12 +38,12 @@
             <Font name="DejaVu Sans Bold" size="11.0" />
          </font>
       </Button>
-      <ImageView fx:id="p1ball" fitHeight="42.0" fitWidth="33.0" layoutX="37.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="p1ball" fitHeight="35.0" fitWidth="32.0" layoutX="47.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@red.png" />
+            <Image url="@blue.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p2ball" fitHeight="42.0" fitWidth="33.0" layoutX="84.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="p2ball" fitHeight="35.0" fitWidth="32.0" layoutX="264.0" layoutY="569.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@yellow.png" />
          </image>

@@ -107,22 +107,17 @@ public class GameController {
     }
 
     public void play() throws IOException {
-        System.out.println(posMap);
-        System.out.println(posMap.values());
         int x1 = (int)p1ball.getLayoutX();
         int y1 = (int)p1ball.getLayoutY();
         int x2 = (int)p2ball.getLayoutX();
         int y2 = (int)p2ball.getLayoutY();
-//        System.out.println(coordinates);
-
-        boolean a1 = ((int) p1ball.getLayoutX()  == 68) &&  ((int) p1ball.getLayoutY() == 141);
-        boolean a2 = ((int) p1ball.getLayoutX()  == 68) &&  ((int) p1ball.getLayoutY() == 141);
 
         if (count % 2 != 0){
             if (flag1){
                 int roll = roll();
+//                int roll = 1;
                 pos1 = pos1 + roll;
-                if (pos1 <= 100){
+                if (pos1 < 100){
                     p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
                     p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
                 }
@@ -140,24 +135,32 @@ public class GameController {
                     p1ball.setLayoutY(coordinates.get(pos-1).getValue());
                     pos1 = pos;
                 }
+
             }
             else{
                 int roll = roll();
+//                int roll = 1;
                 if (roll == 1){
                     flag1 = true;
                     p1ball.setLayoutX(coordinates.get(pos1-1).getKey());
                     p1ball.setLayoutY(coordinates.get(pos1-1).getValue());
                 }
             }
+            if ((Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
+                p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey() - 10);
+//                    p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey() + 10);
+            }
         }
         else{
             if (flag2){
                 int roll = roll();
+//                int roll = 1;
                 pos2 = pos2 + roll;
-                if (pos2 <= 100){
+                if (pos2 < 100){
                     p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey());
                     p2ball.setLayoutY(coordinates.get(pos2 - 1).getValue());
                 }
+
                 if (ladderCoords.containsKey(pos2)){
                     int pos = ladderCoords.get(pos2);
                     p2ball.setLayoutX(coordinates.get(pos-1).getKey());
@@ -173,11 +176,16 @@ public class GameController {
             }
             else {
                 int roll = roll();
+//                int roll = 1;
                 if (roll == 1) {
                     flag2 = true;
                     p2ball.setLayoutX(coordinates.get(pos2-1).getKey());
                     p2ball.setLayoutY(coordinates.get(pos2-1).getValue());
                 }
+            }
+            if ((Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
+//                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey() - 10);
+                p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey() + 10);
             }
         }
         count++;

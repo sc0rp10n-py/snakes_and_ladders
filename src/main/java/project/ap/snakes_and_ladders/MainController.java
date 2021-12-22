@@ -37,7 +37,6 @@ public class MainController {
         String p2 = player2.getText();
         System.out.println("Player 1: " + p1);
         System.out.println("Player 2: " + p2);
-//        GameController.coordinates.add(new Pair<>(10, 10));
         initialiseCoords(GameController.coordinates);
         SnakeMaps(GameController.snakeCoords);
         LadderMaps(GameController.ladderCoords);
@@ -75,49 +74,48 @@ public class MainController {
     }
 
     public void LadderMaps(HashMap<Integer, Integer> map){
-        map.put(1, 38);
-        map.put(4, 14);
-        map.put(8, 30);
-        map.put(21, 42);
-        map.put(28,76);
-        map.put(50, 67);
-        map.put(80,99);
-        map.put(71,92);
+        map.put(4,25);
+        map.put(13,46);
+        map.put(33,49);
+        map.put(50,69);
+        map.put(42,63);
+        map.put(62,81);
+        map.put(74,92);
     }
 
     public void SnakeMaps(HashMap<Integer, Integer> map){
-        map.put(36,6);
-        map.put(32,10);
-        map.put(48,26);
-        map.put(62,18);
-        map.put(88,24);
-        map.put(95,56);
-        map.put(97,78);
+        map.put(40, 3);
+        map.put(43,18);
+        map.put(27,5);
+        map.put(54,31);
+        map.put(76,58);
+        map.put(66,45);
+        map.put(99,41);
+        map.put(89,53);
     }
 
     public void initialiseCoords(ArrayList<Pair<Integer, Integer>> list){
-//        list.add(new Pair<>(68, 510));
-        int x = 68, y = 510;
+        int x = 43, y = 507;
         int ct = 1;
         int ps = 1;
         for (int j = 1; j <= 10; j++){
             if (ct % 2 != 0){
-                x = 68;
+                x = 43;
                 for (int i = 0; i < 10; i++){
-                    list.add(new Pair<>(x + (41*i), y));
-                    GameController.posMap.put(new Pair<>(x + (41*i), y), ps++);
+                    list.add(new Pair<>(x + (45*i), y));
+                    GameController.posMap.put(new Pair<>(x + (45*i), y), ps++);
                 }
             }
             else{
-                x = 437;
+                x = 448;
                 for (int i = 0; i < 10; i++){
-                    list.add(new Pair<>(x - (41*i), y));
-                    GameController.posMap.put(new Pair<>(x - (41*i), y), ps++);
+                    list.add(new Pair<>(x - (45*i), y));
+                    GameController.posMap.put(new Pair<>(x - (45*i), y), ps++);
 
                 }
-                x = 68;
+                x = 43;
             }
-            y = 510 - (41*j);
+            y = 507 - (45*j);
             ct++;
         }
     }
