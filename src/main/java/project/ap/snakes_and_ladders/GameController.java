@@ -176,7 +176,7 @@ public class GameController {
                     p1ball.setLayoutY(coordinates.get(pos1-1).getValue());
                 }
             }
-            if ((Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
+            if ((Math.abs(p1ball.getLayoutY() - p2ball.getLayoutY()) <= 20) && (Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
                 p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey() - 10);
 //                    p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey() + 10);
             }
@@ -216,7 +216,7 @@ public class GameController {
                     p2ball.setLayoutY(coordinates.get(pos2-1).getValue());
                 }
             }
-            if ((Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
+            if ((Math.abs(p1ball.getLayoutY() - p2ball.getLayoutY()) <= 20) && (Math.abs(p1ball.getLayoutX() - p2ball.getLayoutX()) <= 20)){
 //                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey() - 10);
                 p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey() + 10);
             }
