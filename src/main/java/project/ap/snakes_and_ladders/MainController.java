@@ -31,8 +31,7 @@ public class MainController implements Initializable {
     private Scene scene;
     private Group root;
 //    static String p1, p2;
-
-
+    private Boolean soundStat = true;
 
     @FXML
     private MediaView mediaView;
@@ -60,11 +59,19 @@ public class MainController implements Initializable {
                 if (Main.mediaPlayer.getStatus().equals(MediaPlayer.Status.PLAYING)) {
                     Main.mediaPlayer.stop();
                     soundImage.setImage(soundOFF);
+                    soundStat = false;
                 } else {
                     Main.mediaPlayer.play();
                     soundImage.setImage(soundON);
                 }
             });
+            if (soundStat) {
+                Main.mediaPlayer.play();
+                soundImage.setImage(soundON);
+            } else {
+                Main.mediaPlayer.stop();
+                soundImage.setImage(soundOFF);
+            }
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -114,6 +121,11 @@ public class MainController implements Initializable {
 
     public void exit(ActionEvent e) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Image icon = new Image(String.valueOf(Main.class.getResource("danger.png")));
+        ImageView iconView = new ImageView(icon);
+        iconView.setFitHeight(50);
+        iconView.setFitWidth(50);
+        alert.setGraphic(iconView);
         alert.setTitle("EXIT GAME");
         alert.setHeaderText("Are you sure you want to exit the game? ");
         if (alert.showAndWait().get() == ButtonType.OK){

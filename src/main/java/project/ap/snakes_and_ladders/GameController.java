@@ -139,6 +139,11 @@ public class GameController implements Initializable {
 
     public void back(ActionEvent e) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Image icon = new Image(String.valueOf(Main.class.getResource("danger.png")));
+        ImageView iconView = new ImageView(icon);
+        iconView.setFitHeight(50);
+        iconView.setFitWidth(50);
+        alert.setGraphic(iconView);
         alert.setTitle("EXIT");
         alert.setHeaderText("END CURRENT GAME?  ");
         if (alert.showAndWait().get() == ButtonType.OK){

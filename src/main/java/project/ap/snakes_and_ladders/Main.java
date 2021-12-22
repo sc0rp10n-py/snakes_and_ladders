@@ -43,6 +43,11 @@ public class Main extends Application {
             stage.setOnCloseRequest(windowEvent -> {
                 windowEvent.consume();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Image icon2 = new Image(String.valueOf(Main.class.getResource("danger.png")));
+                ImageView iconView = new ImageView(icon2);
+                iconView.setFitHeight(50);
+                iconView.setFitWidth(50);
+                alert.setGraphic(iconView);
                 alert.setTitle("EXIT GAME");
                 alert.setHeaderText("Are you sure you want to exit the game? ");
                 if (alert.showAndWait().get() == ButtonType.OK){
