@@ -21,12 +21,12 @@ public class Main extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("welcome.fxml"));
             Group root = new Group((Node) fxmlLoader.load());
-            System.out.println("Starting Audio");
-            Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
-            MediaPlayer mediaPlayer = new MediaPlayer(music);
-            mediaPlayer.setAutoPlay(true);
-            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-            System.out.println("Audio Started");
+//            System.out.println("Starting Audio");
+//            Media music = new Media(String.valueOf(Main.class.getResource("music.mp3")));
+//            MediaPlayer mediaPlayer = new MediaPlayer(music);
+//            mediaPlayer.setAutoPlay(true);
+//            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//            System.out.println("Audio Started");
             Scene scene = new Scene(root);
             Image icon = new Image(String.valueOf(Main.class.getResource("icon.png")));
             stage.getIcons().add(icon);
