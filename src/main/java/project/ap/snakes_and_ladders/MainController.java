@@ -7,7 +7,9 @@ import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -82,8 +84,13 @@ public class MainController {
     }
 
     public void exit(ActionEvent e) {
-        System.out.println("Exiting");
-        System.exit(0);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("EXIT");
+        alert.setHeaderText("Are you sure you want to exit the game? ");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            System.exit(0);
+        }
+
     }
 
     public void LadderMaps(HashMap<Integer, Integer> map){
