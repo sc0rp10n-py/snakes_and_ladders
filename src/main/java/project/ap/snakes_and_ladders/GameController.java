@@ -171,13 +171,8 @@ public class GameController implements Initializable {
                     pos1 -= roll;
                 }
                 if (pos1 <= 100){
-                    for (int i = pos1-roll; i <= pos1; i++){
-                        p1ball.setLayoutX(coordinates.get(i).getKey());
-                        p1ball.setLayoutY(coordinates.get(i).getValue());
-
-                    }
-//                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
-//                    p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
+                    p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
+                    p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
                 }
 
                 if (ladderCoords.containsKey(pos1)){
@@ -271,6 +266,7 @@ public class GameController implements Initializable {
 //                setWinScene();
             }
             disableButtons(true);
+
         }
     }
 
