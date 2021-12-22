@@ -1,6 +1,7 @@
 package project.ap.snakes_and_ladders;
 
 import javafx.animation.AnimationTimer;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,7 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -35,9 +37,8 @@ public class GameController implements Initializable {
     static boolean flag1 = false, flag2 = false;
     static String winner ;
     static int count = 1;
-//    static int pos1 = 1, pos2 = 1;
-
-    static int pos1 = 100, pos2 = 100;
+    static int pos1 = 1, pos2 = 1;
+//    static int pos1 = 100, pos2 = 100;
     private Stage stage;
     private Scene scene;
     private Parent root;

@@ -8,18 +8,18 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="642.0" style="-fx-background-color: #00cc66;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="project.ap.snakes_and_ladders.GameController">
    <children>
       <Label fx:id="player1" layoutX="129.0" layoutY="576.0" prefHeight="22.0" prefWidth="179.0" text="Player 1">
          <font>
-            <Font name="DejaVu Sans Bold" size="15.0" />
+            <Font name="DejaVu Sans Bold" size="18.0" />
          </font></Label>
       <Label fx:id="player2" layoutX="361.0" layoutY="575.0" prefHeight="22.0" prefWidth="156.0" text="Player 2">
          <font>
-            <Font name="DejaVu Sans Bold" size="15.0" />
+            <Font name="DejaVu Sans Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#rollAnimation" text="ROLL">
+      <Button fx:id="roll" layoutX="517.0" layoutY="374.0" mnemonicParsing="false" onAction="#rollAnimation" style="-fx-background-color: white; -fx-border-radius: 10%;" text="ROLL">
          <font>
             <Font name="DejaVu Sans Bold" size="17.0" />
          </font>
@@ -34,7 +34,7 @@
             <Image url="@d1.png" />
          </image>
       </ImageView>
-      <Button fx:id="back" layoutX="561.0" layoutY="598.0" mnemonicParsing="false" onAction="#back" prefHeight="19.0" prefWidth="57.0" text="BACK">
+      <Button fx:id="back" layoutX="555.0" layoutY="598.0" mnemonicParsing="false" onAction="#back" prefHeight="33.0" prefWidth="62.0" style="-fx-background-color: #ff5c33; -fx-text-fill: white;" text="BACK">
          <font>
             <Font name="DejaVu Sans Bold" size="11.0" />
          </font>

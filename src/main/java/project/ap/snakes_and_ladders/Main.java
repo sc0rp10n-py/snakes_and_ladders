@@ -17,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class Main extends Application {
     static MediaPlayer mediaPlayer;
@@ -33,8 +34,6 @@ public class Main extends Application {
             mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             System.out.println("Audio Started");
             Scene scene = new Scene(root);
-//            scene.setFill(Color.PALEVIOLETRED);
-            scene.setFill(Color.DARKOLIVEGREEN);
             Image icon = new Image(String.valueOf(Main.class.getResource("icon.png")));
             stage.getIcons().add(icon);
             stage.setTitle("SNAKES AND LADDERS");
