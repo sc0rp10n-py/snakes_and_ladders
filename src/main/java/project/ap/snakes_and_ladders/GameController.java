@@ -43,7 +43,7 @@ public class GameController implements Initializable {
     static boolean flag1 = false, flag2 = false;
     static String winner ;
     static int count = 1;
-    static int pos1 = 1, pos2 = 1;
+    static int pos1 = 90, pos2 = 90;
     private Stage stage;
     private Scene scene;
     private Parent root;
