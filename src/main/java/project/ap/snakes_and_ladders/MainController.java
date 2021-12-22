@@ -85,7 +85,7 @@ public class MainController {
 
     public void exit(ActionEvent e) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("EXIT");
+        alert.setTitle("EXIT GAME");
         alert.setHeaderText("Are you sure you want to exit the game? ");
         if (alert.showAndWait().get() == ButtonType.OK){
             System.exit(0);

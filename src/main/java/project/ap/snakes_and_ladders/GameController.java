@@ -1,9 +1,6 @@
 package project.ap.snakes_and_ladders;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
-import javafx.animation.SequentialTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,9 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -30,9 +25,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class GameController implements Initializable {
 //    public static HashMap<Integer, Integer> coordinates = new HashMap<>();
@@ -264,6 +256,7 @@ public class GameController implements Initializable {
             else{
                 winner = player2.getText();
 //                setWinScene();
+                
             }
             disableButtons(true);
 
