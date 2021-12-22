@@ -46,9 +46,9 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <ImageView fitHeight="45.0" fitWidth="42.0" layoutX="78.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="78.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@red.png" />
+            <Image url="@blue.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="414.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">

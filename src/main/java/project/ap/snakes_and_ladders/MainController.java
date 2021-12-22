@@ -21,6 +21,7 @@ public class MainController {
     private Stage stage;
     private Scene scene;
     private Parent root;
+//    static String p1, p2;
 //    private MediaPlayer mediaPlayer;
 
     @FXML

@@ -27,7 +27,7 @@ public class GameController {
     static HashMap<Integer, Integer> snakeCoords = new HashMap<>();
     static HashMap<Integer, Integer> ladderCoords = new HashMap<>();
     static boolean flag1 = false, flag2 = false;
-
+    static String winner ;
     static int count = 1;
     static int pos1 = 1, pos2 = 1;
     private Stage stage;
@@ -117,7 +117,10 @@ public class GameController {
                 int roll = roll();
 //                int roll = 1;
                 pos1 = pos1 + roll;
-                if (pos1 < 100){
+                if (pos1 > 100){
+                    pos1 -= roll;
+                }
+                if (pos1 <= 100){
                     p1ball.setLayoutX(coordinates.get(pos1 - 1).getKey());
                     p1ball.setLayoutY(coordinates.get(pos1 - 1).getValue());
                 }
@@ -156,7 +159,10 @@ public class GameController {
                 int roll = roll();
 //                int roll = 1;
                 pos2 = pos2 + roll;
-                if (pos2 < 100){
+                if (pos2 > 100){
+                    pos2 -= roll;
+                }
+                if (pos2 <= 100){
                     p2ball.setLayoutX(coordinates.get(pos2 - 1).getKey());
                     p2ball.setLayoutY(coordinates.get(pos2 - 1).getValue());
                 }
@@ -189,6 +195,24 @@ public class GameController {
             }
         }
         count++;
+        if (pos1 == 100){
+            if (player1.getText().isEmpty()){
+                winner = "Player 1";
+            }
+            else{
+                winner = player1.getText();
+            }
+            disableButtons(true);
+        }
+        else if (pos2 == 100){
+            if (player2.getText().isEmpty()){
+                winner = "Player 2";
+            }
+            else{
+                winner = player2.getText();
+            }
+            disableButtons(true);
+        }
     }
 
     private Roller clock;
