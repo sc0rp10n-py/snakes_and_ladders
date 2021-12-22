@@ -265,9 +265,9 @@ public class GameController implements Initializable {
         }
     }
 
-    public void setWinScene(ActionEvent e) throws IOException {
+    public void setWinScene(String winner) throws IOException {
         FXMLLoader win = new FXMLLoader(Main.class.getResource("winner.fxml"));
-        root = win.load();
+        Parent root = win.load();
         WinController winController = win.getController();
         winController.setWinner(winner);
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
