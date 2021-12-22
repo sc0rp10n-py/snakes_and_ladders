@@ -37,7 +37,7 @@ public class GameController implements Initializable {
     static int count = 1;
 //    static int pos1 = 1, pos2 = 1;
 
-    static int pos1 = 90, pos2 = 90;
+    static int pos1 = 100, pos2 = 100;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -57,7 +57,8 @@ public class GameController implements Initializable {
     private ImageView p2ball;
     @FXML
     private Button roll;
-
+    @FXML
+    private Label winnerLabel;
     @FXML
     private MediaView mediaView;
     @FXML
@@ -82,9 +83,9 @@ public class GameController implements Initializable {
 
     public void setPlayers(String p1, String p2) {
         System.out.println("Setting Player 1");
-        player1.setText("Player 1: " + p1);
+        player1.setText(p1);
         System.out.println("Setting Player 2");
-        player2.setText("Player 2: " + p2);
+        player2.setText(p2);
     }
 
     public int roll() throws IOException {
@@ -242,22 +243,22 @@ public class GameController implements Initializable {
         if (pos1 == 100){
             if (player1.getText().isEmpty()){
                 winner = "Player 1";
-//                setWinScene();
+                winnerLabel.setText("Winner is " + winner);
             }
             else{
                 winner = player1.getText();
-//                setWinScene();
+                winnerLabel.setText("Winner is " + winner);
             }
             disableButtons(true);
         }
         else if (pos2 == 100){
             if (player2.getText().isEmpty()){
                 winner = "Player 2";
-//                setWinScene();
+                winnerLabel.setText("Winner is " + winner);
             }
             else{
                 winner = player2.getText();
-//                setWinScene();
+                winnerLabel.setText("Winner is " + winner);
                 
             }
             disableButtons(true);
@@ -265,16 +266,23 @@ public class GameController implements Initializable {
         }
     }
 
-    public void setWinScene(String winner) throws IOException {
-        FXMLLoader win = new FXMLLoader(Main.class.getResource("winner.fxml"));
-        Parent root = win.load();
-        WinController winController = win.getController();
-        winController.setWinner(winner);
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+//    public void setWinScene(String winner) throws IOException {
+//        System.out.println("1");
+//        FXMLLoader win = new FXMLLoader(Main.class.getResource("winner.fxml"));
+//        System.out.println("2");
+//        Parent root = win.load();
+//        System.out.println("3");
+//        WinController winController = win.getController();
+//        System.out.println("4");
+//        winController.setWinner(winner);
+//        System.out.println("5");
+////        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        System.out.println("6");
+//        stage.
+//        System.out.println("7");
+//        stage.show();
+//    }
 
     private class Roller extends AnimationTimer {
         private long FPS = 50L;

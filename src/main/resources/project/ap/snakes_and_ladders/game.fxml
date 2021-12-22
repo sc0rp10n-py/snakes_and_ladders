@@ -60,5 +60,10 @@
          </image>
       </ImageView>
       <MediaView fx:id="mediaView" fitHeight="100.0" fitWidth="100.0" rotate="180.0" x="500.0" y="420.0" />
+      <Label fx:id="winnerLabel" alignment="CENTER" layoutY="29.0" prefHeight="17.0" prefWidth="642.0">
+         <font>
+            <Font name="DejaVu Sans Bold" size="33.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
