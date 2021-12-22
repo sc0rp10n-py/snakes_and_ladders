@@ -38,12 +38,12 @@
             <Font name="DejaVu Sans Bold" size="11.0" />
          </font>
       </Button>
-      <ImageView fx:id="p1ball" fitHeight="45.0" fitWidth="33.0" layoutX="372.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="p1ball" fitHeight="42.0" fitWidth="33.0" layoutX="37.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@red.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="p2ball" fitHeight="45.0" fitWidth="33.0" layoutX="58.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="p2ball" fitHeight="42.0" fitWidth="33.0" layoutX="84.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@yellow.png" />
          </image>
